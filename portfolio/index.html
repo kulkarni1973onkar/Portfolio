@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Full Stack Engineer specializing in Java, Python, Node.js microservices, AI/ML, and financial platforms.">
+  <meta name="author" content="Your Name">
+
+  <!-- Open Graph -->
+  <meta property="og:title"       content="Portfolio — Full Stack Engineer">
+  <meta property="og:description" content="Building scalable digital systems at the edge of AI & Finance.">
+  <meta property="og:type"        content="website">
+
+  <title>Portfolio — Full Stack Engineer</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets — load order matters -->
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/nav.css">
+  <link rel="stylesheet" href="assets/css/hero.css">
+  <link rel="stylesheet" href="assets/css/about.css">
+  <link rel="stylesheet" href="assets/css/projects.css">
+  <link rel="stylesheet" href="assets/css/education.css">
+  <link rel="stylesheet" href="assets/css/contact.css">
+  <!--<link rel="stylesheet" href="assets/css/chatbot.css">-->
+  <link rel="stylesheet" href="assets/css/footer.css">
+</head>
+<body>
+
+  <!-- Custom Cursor -->
+  <div class="cursor"      id="cursor"></div>
+  <div class="cursor-ring" id="cursor-ring"></div>
+
+  <!-- Grid Background -->
+  <div class="grid-bg"></div>
+
+  <!-- Scroll Progress Bar -->
+  <div class="nav-progress" id="nav-progress"></div>
+
+  <!-- ═══════════════════════════════════════
+       NAVIGATION
+  ═══════════════════════════════════════ -->
+  <nav>
+    <a href="#hero" class="nav-logo">
+      Onkar Kulkarni
+      <div class="nav-logo-dot"></div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })">
+      Hire Me
+    </button>
+
+    <button class="nav-mob" id="nav-mob" onclick="toggleMobileNav()" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Dropdown -->
+  <div class="mobile-nav" id="mobile-nav">
+    <a href="#about"     onclick="toggleMobileNav()">About</a>
+    <a href="#projects"  onclick="toggleMobileNav()">Projects</a>
+    <a href="#education" onclick="toggleMobileNav()">Education</a>
+    <a href="#contact"   onclick="toggleMobileNav()">Contact</a>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════ -->
+  <section class="hero" id="hero">
+    <div class="hero-orb"></div>
+    <div class="hero-orb2"></div>
+
+    <!-- Left Content -->
+    <div class="hero-left">
+      <div class="hero-tag">Full Stack Solutions · AI/ML · FinTech · Healthcare </div>
+
+      <h1 class="hero-title">
+        <em>Onkar Kulkarni</em>
+      </h1>
+      <h1 class="hero-title1">
+        <em>AI Full-Stack Developer</em>
+      </h1>
+      <p class="hero-subtitle">Architecting Scalable AI Infrastructure</p>
+
+      <p class="hero-desc">
+        Specializing Spring Boot, Python, & Node.js Microservices. Expert in Full-Lifecycle Product Delivery and Production-Grade LLM Integration for Secure, High-Performance Systems.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#projects" class="btn-primary">View Projects</a>
+        <a href="#contact"  class="btn-ghost">Get In Touch</a>
+      </div>
+
+      <div class="availability-badge">
+        <span class="avail-pill">
+          <span class="avail-dot"></span>
+          Available for new opportunities
+        </span>
+      </div>
+    </div>
+
+    <!-- Right: Profile Photo -->
+    <div class="hero-right">
+      <div class="hero-right-inner">
+        <div class="profile-frame">
+
+          <!-- Animated border glow -->
+          <div class="profile-glow"></div>
+          <div class="profile-glow-inner"></div>
+
+          <!-- Floating stat badges -->
+          <div class="stat-badge b1">
+            <span class="sb-icon">⚡</span>
+            <div class="sb-info">
+              <strong>Backend Developer</strong>
+              <span>Production Systems</span>
+            </div>
+          </div>
+          <div class="stat-badge b2">
+            <span class="sb-icon">🤖</span>
+            <div class="sb-info">
+              <strong>AI / LLM Expert</strong>
+              <span>LangChain · RAG</span>
+            </div>
+          </div>
+          <div class="stat-badge b3">
+            <span class="sb-icon">🚀</span>
+            <div class="sb-info">
+              <strong>DevOps</strong>
+              <span>Release Cycles</span>
+            </div>
+          </div>
+
+          <!-- Hidden file input -->
+          <input type="file" id="photo-input" accept="image/*" onchange="loadPhoto(event)">
+
+          <!-- Profile image wrapper (click to upload) -->
+          <div class="profile-img-wrap"
+               onclick="document.getElementById('photo-input').click()"
+               title="Click to upload your photo">
+
+            <!-- Placeholder shown before photo is uploaded -->
+            <div class="profile-placeholder" id="photo-placeholder">
+              <div class="ph-avatar-ring">
+                <div class="ph-avatar-inner">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                    <circle cx="12" cy="7" r="4"/>
+                  </svg>
+                </div>
+              </div>
+              <p class="ph-text">Your profile photo<br>goes here</p>
+              <div class="ph-upload-btn"
+                   onclick="event.stopPropagation(); document.getElementById('photo-input').click()">
+                <svg viewBox="0 0 24 24">
+                  <polyline points="16 16 12 12 8 16"/>
+                  <line x1="12" y1="12" x2="12" y2="21"/>
+                  <path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"/>
+                </svg>
+                Upload Photo
+              </div>
+            </div>
+
+            <!-- Hover overlay (shown after photo upload) -->
+            <div class="upload-overlay" id="upload-overlay" style="display:none;">
+              <svg viewBox="0 0 24 24">
+                <polyline points="16 16 12 12 8 16"/>
+                <line x1="12" y1="12" x2="12" y2="21"/>
+                <path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"/>
+              </svg>
+              <span>Change Photo</span>
+            </div>
+
+          </div><!-- /.profile-img-wrap -->
+        </div><!-- /.profile-frame -->
+      </div><!-- /.hero-right-inner -->
+    </div><!-- /.hero-right -->
+
+    <div class="scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ═══════════════════════════════════════
+       ABOUT
+  ═══════════════════════════════════════ -->
+  <section id="about">
+    <div class="eyebrow">Who I Am</div>
+    <h2 class="sec-title">Engineer. Architect. <em>Problem Solver.</em></h2>
+
+    <div class="about-grid">
+      <div class="about-text">
+        <p>I'm a Full Stack Engineer specializing in the high-stakes intersection of distributed microservices and autonomous intelligence. Expert in Spring Boot, Python, and Node.js, I architect production-ready infrastructure for mission-critical platforms where failure is not an option.</p>
+        <p>Engineering citizen-scale tax portals and multi-agent RAG frameworks processing 250,000+ clinical documents, I deliver full-lifecycle, high-concurrency systems. I converge resilient backends with Generative AI to provide secure, LLM-integrated solutions where architectural integrity and sub-second performance are non-negotiable.</p>
+        <p>Currently, I am scaling high-performance digital solutions across the finance and healthcare sectors, pushing the boundaries of what is possible with agentic LLM applications and secure AI infrastructure.</p>
+        <div class="hl-box">
+          <h2>🎓 M.S. Computer Science | State Univeristy of New York</h2>
+        </div>
+      </div>
+
+      <div class="skills-stack">
+        <div class="skill-cat">
+          <div class="skill-cat-lbl">Languages &amp; Databases</div>
+          <div class="tags">
+            <span class="tag">Java</span>
+            <span class="tag">Python</span>
+            <span class="tag">TypeScript</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">SQL</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">HTML/CSS</span>
+          </div>
+        </div>
+        <div class="skill-cat">
+          <div class="skill-cat-lbl">Frontend &amp; Backend</div>
+          <div class="tags">
+            <span class="tag">React</span>
+            <span class="tag">Angular</span>
+            <span class="tag">Next.js</span>
+            <span class="tag">Spring Boot</span>
+            <span class="tag">FastAPI</span>
+            <span class="tag">Node.js</span>
+            <span class="tag">GraphQL</span>
+            <span class="tag">PySpark</span>
+            <span class="tag">FastAPI</span>
+            <span class="tag">REST API</span>
+            <span class="tag">JWT</span>
+            <span class="tag">RBAC</span>
+          </div>
+        </div>
+        <div class="skill-cat">
+          <div class="skill-cat-lbl">Cloud &amp; DevOps</div>
+          <div class="tags">
+            <span class="tag">Azure AKS</span>
+            <span class="tag">AWS(S3, EC2, Lambda)</span>
+            <span class="tag">Docker</span>
+            <span class="tag">Kubernetes</span>
+            <span class="tag">CI/CD</span>
+            <span class="tag">ServiceNow</span>
+            <span class="tag">Git</span>
+          </div>
+        </div>
+        <div class="skill-cat">
+          <div class="skill-cat-lbl">AI / ML &amp; NLP</div>
+          <div class="tags">
+            <span class="tag">LangChain</span>
+            <span class="tag">LangGraph</span>
+            <span class="tag">RAG</span>
+            <span class="tag">LLM Fine-Tuning</span>
+            <span class="tag">Agentic AI</span>
+            <span class="tag">Hugging Face</span>
+            <span class="tag">Ollama</span>
+            <span class="tag">ChromaDB</span>
+            <span class="tag">Pinecone</span>
+            <span class="tag">Prompt Engineering</span>
+            <span class="tag">Gemini & OpenAI APIs</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ═══════════════════════════════════════
+       PROJECTS
+  ═══════════════════════════════════════ -->
+  <section id="projects">
+    <div class="eyebrow">Work</div>
+    <h2 class="sec-title">Selected <em>Projects</em></h2>
+
+    <div class="proj-grid">
+
+      <!-- Featured: MedLedger -->
+      <div class="pcard wide">
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          <div class="pcard-top">
+            <div class="picon">🏥</div>
+            <div class="plinks">
+              <a href="https://github.com/kulkarni1973onkar/Medledger-AI" class="plink" title="GitHub" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+              </a>
+              <a href="https://medledger-ai-c2z1.vercel.app/" class="plink ext" title="Live Demo" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+            </div>
+          </div>
+          <div class="ptitle">MedLedger AI-Powered Healthcare Platform</div>
+          <p class="pdesc">Clinician-facing dashboard UI automating medical PDF extraction and summarization. Real-time fraud detection surfacing visual anomaly signals from a Gemini/GPT-4o-mini pipeline, enabling compliance teams to audit structured data at speed.</p>
+          <div class="pmetrics">
+            <span class="pm">Real-time fraud detection</span>
+            <span class="pm">AI PDF extraction</span>
+            <span class="pm">Compliance auditing</span>
+          </div>
+          <div class="ptech">
+            <span class="pt">Next.js</span><span class="pt">TypeScript</span><span class="pt">Vercel SDK</span><span class="pt">LLMs</span><span class="pt">PostgreSQL</span><span class="pt">Gemini</span><span class="pt">GPT-4o-mini</span>
+          </div>
+        </div>
+        <div class="ipanel">
+          <div class="ipanel-lbl">Impact Metrics</div>
+          <div class="imet">
+            <div class="imet-hd"><span>Fraud Detection Speed</span><span class="imet-val g">+80%</span></div>
+            <div class="bar"><div class="bar-in g" style="width:80%"></div></div>
+          </div>
+          <div class="imet">
+            <div class="imet-hd"><span>PDF Processing Accuracy</span><span class="imet-val g">~94%</span></div>
+            <div class="bar"><div class="bar-in g" style="width:94%"></div></div>
+          </div>
+          <div class="imet">
+            <div class="imet-hd"><span>Compliance Confidence</span><span class="imet-val au">Very High</span></div>
+            <div class="bar"><div class="bar-in au" style="width:90%"></div></div>
+          </div>
+          <div class="imet">
+            <div class="imet-hd"><span>Clinician Adoption</span><span class="imet-val au">+65%</span></div>
+            <div class="bar"><div class="bar-in au" style="width:65%"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Multi-Agent-->
+      <div class="pcard">
+        <div class="pcard-top">
+          <div class="picon">🤖</div>
+          <div class="plinks">
+            <a href="https://github.com/kulkarni1973onkar/AI_Clinical_Symptom_Assistant" class="plink" title="GitHub" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="ptitle">Multi-Agent Clinical Support Portal</div>
+        <p class="pdesc">Agentic RAG system using LangGraph with multi-agent orchestration. Hybrid retrieval combining dense embeddings (OpenAI), sparse BM25, and medical reranking across 250,000+ clinical documents.</p>
+        <div class="pmetrics">
+          <span class="pm">92% query accuracy</span>
+          <span class="pm">−40% response time</span>
+        </div>
+        <div class="ptech">
+          <span class="pt">Python</span><span class="pt">LangGraph</span><span class="pt">FastAPI</span><span class="pt">Gemini</span><span class="pt">Ollama</span><span class="pt">React</span><span class="pt">ChromaDB</span><span class="pt">Pinecone</span>
+        </div>
+      </div>
+      
+
+      <!-- Self-Service Portal -->
+      <div class="pcard">
+        <div class="pcard-top">
+          <div class="picon">📊</div>
+          <div class="plinks">
+            <a href="https://github.com/kulkarni1973onkar/Custom_Form_Builder_with_Live_Analytics" class="plink" title="GitHub" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="ptitle">Self-Service Request Portal</div>
+        <p class="pdesc">High-throughput portal handling 500+ requests/sec with real-time analytics. Maintains 99% uptime across 5,000+ active submissions with 25% payload optimization to reduce data-fetch overhead.</p>
+        <div class="pmetrics">
+          <span class="pm">500+ req/sec</span>
+          <span class="pm">99% uptime</span>
+          <span class="pm">+40% throughput</span>
+        </div>
+        <div class="ptech">
+          <span class="pt">React</span><span class="pt">Node.js</span><span class="pt">PostgreSQL</span><span class="pt">Docker</span>
+        </div>
+      </div>
+
+      <!-- Tax Filing Portal -->
+      <div class="pcard" style="grid-column: span 2;">
+        <div class="pcard-top">
+          <div class="picon">🏛️</div>
+          <div class="plinks">
+            <a href="https://github.com/kulkarni1973onkar/Municipal-Finances-Tax-Management-System" class="plink" title="GitHub" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="ptitle">Citizen Tax Filing Portal with Automated Workflows</div>
+        <p class="pdesc">OMS-style workflow portal for 1,000+ users automating multi-step order processing, saving 100+ manual hours annually with sub-3-second load times. Capacity planning designed to support 2,000 concurrent users during peak filing periods, driving 30% higher adoption.</p>
+        <div class="pmetrics">
+          <span class="pm">1,000+ users</span>
+          <span class="pm">100+ hrs saved/yr</span>
+          <span class="pm">2,000 concurrent</span>
+          <span class="pm">sub-3s load</span>
+          <span class="pm">+30% adoption</span>
+        </div>
+        <div class="ptech">
+          <span class="pt">Angular</span><span class="pt">TypeScript</span><span class="pt">Spring Boot</span><span class="pt">PostgreSQL</span><span class="pt">AWS</span>
+        </div>
+      </div>
+
+    </div><!-- /.proj-grid -->
+  </section>
+
+  <hr class="divider">
+
+  <!-- ═══════════════════════════════════════
+       EDUCATION
+  ═══════════════════════════════════════ -->
+  <section id="education">
+    <div class="eyebrow">Education</div>
+    <h2 class="sec-title">Academic <em>Foundation</em></h2>
+
+    <div class="edu-grid">
+      <div class="ecard">
+        <div class="etype">Master's Degree</div>
+        <div class="edeg">M.S. Computer Science</div>
+        <div class="eschool">State University of New York at New Paltz</div>
+        <div class="ecourses">
+          <span class="ecourse">Full-Stack Web Dev</span>
+          <span class="ecourse">AI/ML</span>
+          <span class="ecourse">Natural Language Processing</span>
+          <span class="ecourse">Cloud Computing</span>
+          <span class="ecourse">Database Systems</span>
+        </div>
+      </div>
+      <div class="ecard">
+        <div class="etype">Bachelor's Degree</div>
+        <div class="edeg">B.E. Computer Engineering</div>
+        <div class="eschool">University of Pune — SPPU</div>
+        <div class="ecourses">
+          <span class="ecourse">Computer Engineering</span>
+          <span class="ecourse">Software Systems</span>
+          <span class="ecourse">Data Structures</span>
+          <span class="ecourse">Algorithms</span>
+          <span class="ecourse">Networks</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ═══════════════════════════════════════
+       CONTACT
+  ═══════════════════════════════════════ -->
+  <section id="contact">
+    <div class="eyebrow">Get In Touch</div>
+    <h2 class="sec-title">Let's Build Something <em>Remarkable</em></h2>
+
+    <div class="contact-grid">
+
+      <!-- Left: Info -->
+      <div class="contact-left">
+        <p class="contact-quote">"I'm always open to discussing new projects, creative ideas, or opportunities to be part of something great."</p>
+
+        <div class="cinfo">
+          <a href="mailto:kulkarnionkar1911@gmail.com" class="cinfo-row">
+            <div class="cinfo-ic">
+              <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            </div>
+            <div class="cinfo-txt">
+              <span class="clbl">Email</span>
+              <span class="cval">kulkarnionkar1911@gmail.com</span>
+            </div>
+          </a>
+
+          <a href="https://github.com/kulkarni1973onkar" target="_blank" rel="noopener" class="cinfo-row">
+            <div class="cinfo-ic">
+              <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+            </div>
+            <div class="cinfo-txt">
+              <span class="clbl">GitHub</span>
+              <span class="cval">github.com/kulkarni1973onkar</span>
+            </div>
+          </a>
+
+          <a href="https://www.linkedin.com/in/onkar1973/" target="_blank" rel="noopener" class="cinfo-row">
+            <div class="cinfo-ic">
+              <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </div>
+            <div class="cinfo-txt">
+              <span class="clbl">LinkedIn</span>
+              <span class="cval">linkedin.com/in/onkar1973</span>
+            </div>
+          </a>
+
+          <a href="https://drive.google.com/file/d/1mEgF9m5NAcYpNLr6evOT0A1F3SZTHaKk/view?usp=sharing" class="cinfo-row">
+            <div class="cinfo-ic">
+              <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm4 18H6V4h7v5h5v11zM8 15h8v2H8zm0-4h8v2H8z"/></svg>
+            </div>
+            <div class="cinfo-txt">
+              <span class="clbl">Resume</span>
+              <span class="cval">Download PDF</span>
+            </div>
+          </a>
+        </div>
+      </div><!-- /.contact-left -->
+
+      <!-- Right: Form -->
+      
+      <div class="cform" id="cform">
+        <div class="frow">
+          <div class="fg">
+            <label class="flbl" for="ff">First Name</label>
+            <input type="text"  class="fin" id="ff" placeholder="John" autocomplete="given-name">
+          </div>
+          <div class="fg">
+            <label class="flbl" for="fl">Last Name</label>
+            <input type="text"  class="fin" id="fl" placeholder="Doe" autocomplete="family-name">
+          </div>
+        </div>
+        <div class="fg">
+          <label class="flbl" for="fe">Email Address</label>
+          <input type="email" class="fin" id="fe" placeholder="john@example.com" autocomplete="email">
+        </div>
+        <div class="fg">
+          <label class="flbl" for="fs">Subject</label>
+          <select class="fsel" id="fs">
+            <option value="">Select a topic...</option>
+            <option>Job Opportunity / Hiring</option>
+            <option>Freelance Project</option>
+            <option>Technical Collaboration</option>
+            <option>Open Source / Community</option>
+            <option>General Inquiry</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label class="flbl" for="fm">Message</label>
+          <textarea class="ftxt" id="fm" placeholder="Tell me about your project or opportunity..."></textarea>
+        </div>
+        <button class="btn-send" id="btn-send" onclick="submitForm()">
+          <svg viewBox="0 0 24 24">
+            <path d="m22 2-7 20-4-9-9-4 20-7z"/>
+            <path d="M22 2 11 13"/>
+          </svg>
+          Send Message
+        </button>
+        <p class="fnote">Typically responding within 24–48 hours. Your details are never shared.</p>
+        <div class="fsuccess" id="fsuccess">
+          <div style="font-size:1.4rem;margin-bottom:6px;">✅</div>
+          <strong>Message sent!</strong><br>
+          <span style="font-size:0.78rem;opacity:0.8;">I'll get back to you within 24–48 hours.</span>
+        </div>
+      </div><!-- /.cform -->
+
+    </div><!-- /.contact-grid -->
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════ -->
+  <footer>
+    <p>© 2025 Onkar Kulkarni. All rights reserved. Built with precision &amp; caffeine ☕</p>
+    <div class="footer-links">
+      <a href="https://github.com/kulkarni1973onkar" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+        GitHub
+      </a>
+      <a href="https://www.linkedin.com/in/onkar1973/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://drive.google.com/file/d/1mEgF9m5NAcYpNLr6evOT0A1F3SZTHaKk/view?usp=sharing">Resume</a>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════════════════
+       CHATBOT WIDGET
+  ═══════════════════════════════════════ 
+  <button id="chat-btn" onclick="toggleChat()" aria-label="Open chat assistant">
+    <svg viewBox="0 0 24 24">
+      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+    </svg>
+    <div class="chat-ping"></div>
+  </button>
+
+  <div id="chat-window" role="dialog" aria-label="Portfolio assistant">
+    <div class="ch-header">
+      <div class="ch-av">🤖</div>
+      <div class="ch-info">
+        <h4>Portfolio Assistant</h4>
+        <p>Online — Ask me anything</p>
+      </div>
+      <button class="ch-close" onclick="toggleChat()" aria-label="Close chat">✕</button>
+    </div>
+-->
+    <!-- API Key Setup (hidden once key is saved) 
+    <div id="api-block">
+      <div class="api-notice">⚙️ Paste your Anthropic API key to activate AI. Stored locally in your browser only.</div>
+      <div class="api-row">
+        <input type="password" id="api-in" class="api-in" placeholder="sk-ant-...">
+        <button class="api-save" onclick="saveKey()">Save</button>
+      </div>
+    </div>
+
+    <div class="ghstat" id="ghstat"></div>
+
+     Message Thread 
+    <div class="ch-msgs" id="ch-msgs">
+      <div class="msg bot">
+        <div class="mav">🤖</div>
+        <div class="mbbl">Hi! I'm your portfolio assistant. Ask me about projects, skills, experience, or GitHub repos!</div>
+      </div>
+    </div>
+-->
+    <!-- Quick Chips 
+    <div class="ch-chips" id="ch-chips">
+      <span class="chip" onclick="useChip(this)">AI projects</span>
+      <span class="chip" onclick="useChip(this)">Tech stack</span>
+      <span class="chip" onclick="useChip(this)">GitHub repos</span>
+      <span class="chip" onclick="useChip(this)">Top achievement</span>
+    </div>
+    -->
+
+    <!-- Input Row 
+    <div class="ch-input-row">
+      <input type="text" id="ch-in" class="ch-in"
+             placeholder="Ask about skills, projects, GitHub..."
+             onkeydown="if(event.key === 'Enter') sendMsg()">
+      <button class="ch-send" id="ch-send" onclick="sendMsg()" aria-label="Send message">
+        <svg viewBox="0 0 24 24">
+          <path d="m22 2-7 20-4-9-9-4 20-7z"/>
+          <path d="M22 2 11 13"/>
+        </svg>
+      </button>
+    </div>
+  </div>/#chat-window 
+  -->
+
+  <!-- ═══════════════════════════════════════
+       SCRIPTS — load order matters
+  ═══════════════════════════════════════ -->
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/cursor.js"></script>
+  <script src="assets/js/nav.js"></script>
+  <script src="assets/js/photo.js"></script>
+  <script src="assets/js/contact.js"></script>
+  <script src="assets/js/chatbot.js"></script>
+  <script src="assets/js/animations.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="contact.js"></script>
+</body>
+</html>

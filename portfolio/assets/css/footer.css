@@ -1,0 +1,57 @@
+/* ============================================================
+   footer.css — Footer
+   ============================================================ */
+
+footer {
+  background: var(--bg2);
+  border-top: 1px solid var(--border);
+  padding: 26px 64px;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+footer p {
+  color: var(--text-dim);
+  font-size: 0.7rem;
+  font-family: var(--font-mono);
+}
+
+.footer-links {
+  display: flex;
+  gap: 22px;
+}
+
+.footer-links a {
+  color: var(--text-dim);
+  text-decoration: none;
+  font-family: var(--font-mono);
+  font-size: 0.69rem;
+  transition: color var(--transition-fast);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.footer-links a svg {
+  width: 13px;
+  height: 13px;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
+.footer-links a:hover {
+  color: var(--gold);
+}
+
+/* ----- Responsive ----- */
+@media (max-width: 768px) {
+  footer {
+    padding: 18px 24px;
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+}

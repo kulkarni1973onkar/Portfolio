@@ -1,0 +1,236 @@
+/* ============================================================
+   projects.css — Projects Grid & Cards
+   ============================================================ */
+
+#projects {
+  background: var(--bg);
+}
+
+/* ----- Grid Layout ----- */
+.proj-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+/* ----- Base Card ----- */
+.pcard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 30px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.pcard::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--gold), var(--accent), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.pcard:hover {
+  border-color: rgba(201, 168, 76, 0.24);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.pcard:hover::after {
+  opacity: 1;
+}
+
+/* ----- Wide Featured Card ----- */
+.pcard.wide {
+  grid-column: span 2;
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 36px;
+}
+
+/* ----- Card Header ----- */
+.pcard-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.picon {
+  width: 40px;
+  height: 40px;
+  background: var(--gold-dim);
+  border: 1px solid rgba(201, 168, 76, 0.22);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.05rem;
+  flex-shrink: 0;
+}
+
+/* ----- Project Links ----- */
+.plinks {
+  display: flex;
+  gap: 7px;
+}
+
+.plink {
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.plink svg {
+  width: 15px;
+  height: 15px;
+  fill: currentColor;
+}
+
+.plink.ext svg {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.plink:hover {
+  color: var(--gold);
+  border-color: rgba(201, 168, 76, 0.4);
+  background: var(--gold-dim);
+}
+
+/* ----- Card Content ----- */
+.ptitle {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  line-height: 1.22;
+}
+
+.pdesc {
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  line-height: 1.78;
+  font-weight: 400;
+  flex: 1;
+}
+
+/* ----- Metric Chips ----- */
+.pmetrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.pm {
+  background: var(--green-dim);
+  border: 1px solid rgba(61, 220, 151, 0.18);
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--green);
+}
+
+/* ----- Tech Stack Badges ----- */
+.ptech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.pt {
+  background: rgba(79, 142, 247, 0.07);
+  border: 1px solid rgba(79, 142, 247, 0.15);
+  border-radius: 4px;
+  padding: 3px 8px;
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  color: var(--accent2);
+}
+
+/* ----- Impact Panel (inside featured card) ----- */
+.ipanel {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-self: stretch;
+}
+
+.ipanel-lbl {
+  font-family: var(--font-mono);
+  font-size: 0.59rem;
+  color: var(--gold);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.imet {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.imet-hd {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.71rem;
+}
+
+.imet-hd span:first-child {
+  color: var(--text-muted);
+}
+
+.imet-val {
+  font-family: var(--font-mono);
+}
+
+.imet-val.g  { color: var(--green); }
+.imet-val.au { color: var(--gold); }
+
+.bar {
+  height: 3px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 2px;
+}
+
+.bar-in {
+  height: 100%;
+  border-radius: 2px;
+}
+
+.bar-in.g  { background: linear-gradient(90deg, var(--green), #6effc8); }
+.bar-in.au { background: linear-gradient(90deg, var(--gold), var(--gold2)); }
+
+/* ----- Responsive ----- */
+@media (max-width: 768px) {
+  .proj-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pcard.wide {
+    grid-column: span 1;
+    display: flex;
+    flex-direction: column;
+  }
+}

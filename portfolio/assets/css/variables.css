@@ -1,0 +1,52 @@
+/* ============================================================
+   variables.css — Design Tokens & CSS Custom Properties
+   ============================================================ */
+
+:root {
+  /* Backgrounds */
+  --bg:       #060910;
+  --bg2:      #0b0f1a;
+  --surface:  #101624;
+  --surface2: #141d2e;
+
+  /* Borders */
+  --border:  rgba(255, 255, 255, 0.07);
+  --border2: rgba(255, 255, 255, 0.13);
+
+  /* Brand — Gold */
+  --gold:     #c9a84c;
+  --gold2:    #e8c97a;
+  --gold-dim: rgba(201, 168, 76, 0.09);
+  --gold-dim2:rgba(201, 168, 76, 0.17);
+
+  /* Text */
+  --text:       #e4e8f2;
+  --text-muted: #7a8499;
+  --text-dim:   #3a4255;
+
+  /* Accent — Blue */
+  --accent:  #4f8ef7;
+  --accent2: #84bcff;
+
+  /* Success — Green */
+  --green:     #3ddc97;
+  --green-dim: rgba(61, 220, 151, 0.09);
+
+  /* Misc */
+  --radius: 14px;
+  --font-display: 'DM Serif Display', serif;
+  --font-mono:    'DM Mono', monospace;
+  --font-body:    'Syne', sans-serif;
+
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.25s ease;
+  --transition-slow: 0.4s ease;
+
+  /* Shadows */
+  --shadow-sm:  0 4px 16px rgba(0, 0, 0, 0.3);
+  --shadow-md:  0 8px 28px rgba(0, 0, 0, 0.45);
+  --shadow-lg:  0 20px 60px rgba(0, 0, 0, 0.55);
+  --shadow-xl:  0 32px 80px rgba(0, 0, 0, 0.65);
+  --shadow-gold: 0 8px 28px rgba(201, 168, 76, 0.28);
+}

@@ -1,0 +1,243 @@
+/* ============================================================
+   contact.css — Contact Section & Form
+   ============================================================ */
+
+#contact {
+  background: var(--bg);
+}
+
+/* ----- Layout Grid ----- */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+/* ----- Left Info Column ----- */
+.contact-left {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+.contact-quote {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.75;
+  max-width: 380px;
+  border-left: 3px solid var(--gold);
+  padding-left: 18px;
+}
+
+/* ----- Contact Info Rows ----- */
+.cinfo {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cinfo-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 18px;
+  text-decoration: none;
+  transition: border-color var(--transition-fast), background var(--transition-fast);
+}
+
+.cinfo-row:hover {
+  border-color: rgba(201, 168, 76, 0.32);
+  background: var(--surface2);
+}
+
+.cinfo-ic {
+  width: 36px;
+  height: 36px;
+  background: var(--gold-dim);
+  border: 1px solid rgba(201, 168, 76, 0.22);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.cinfo-ic svg {
+  width: 17px;
+  height: 17px;
+  fill: var(--gold);
+}
+
+.cinfo-txt {
+  display: flex;
+  flex-direction: column;
+}
+
+.cinfo-txt .clbl {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  color: var(--text-dim);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.cinfo-txt .cval {
+  font-size: 0.83rem;
+  color: var(--text);
+}
+
+/* ----- Contact Form ----- */
+.cform {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.frow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.fg {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.flbl {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.fin,
+.ftxt,
+.fsel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 11px 15px;
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 0.84rem;
+  outline: none;
+  transition: border-color var(--transition-fast), background var(--transition-fast);
+  width: 100%;
+}
+
+.fin:focus,
+.ftxt:focus,
+.fsel:focus {
+  border-color: rgba(201, 168, 76, 0.45);
+  background: var(--surface2);
+}
+
+.fin::placeholder,
+.ftxt::placeholder {
+  color: var(--text-dim);
+}
+
+.ftxt {
+  resize: vertical;
+  min-height: 128px;
+  line-height: 1.65;
+}
+
+.fsel {
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='7'%3E%3Cpolyline points='1,1 5,6 9,1' fill='none' stroke='%237a8499' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 13px center;
+}
+
+.fsel option {
+  background: var(--surface2);
+}
+
+/* ----- Submit Button ----- */
+.btn-send {
+  background: var(--gold);
+  color: var(--bg);
+  border: none;
+  padding: 14px 28px;
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  width: 100%;
+}
+
+.btn-send:hover {
+  background: var(--gold2);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-gold);
+}
+
+.btn-send:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-send svg {
+  width: 15px;
+  height: 15px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ----- Form Notes & Success ----- */
+.fnote {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--text-dim);
+  text-align: center;
+  line-height: 1.6;
+}
+
+.fsuccess {
+  display: none;
+  background: var(--green-dim);
+  border: 1px solid rgba(61, 220, 151, 0.25);
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  color: var(--green);
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+/* ----- Responsive ----- */
+@media (max-width: 768px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .frow {
+    grid-template-columns: 1fr;
+  }
+}
